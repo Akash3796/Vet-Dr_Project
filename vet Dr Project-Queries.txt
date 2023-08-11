@@ -1,0 +1,40 @@
+CREATE DATABASE `vds-project` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE TABLE `appointmnt` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `cFname` varchar(45) DEFAULT NULL,
+  `cmail` varchar(45) DEFAULT NULL,
+  `cphone` varchar(45) DEFAULT NULL,
+  `cdate` varchar(45) DEFAULT NULL,
+  `cAdr` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `customer` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `fname` varchar(45) DEFAULT NULL,
+  `lname` varchar(45) DEFAULT NULL,
+  `user` varchar(45) DEFAULT NULL,
+  `pass` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `drinfo` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `dfname` varchar(45) DEFAULT NULL,
+  `dmobile` varchar(45) DEFAULT NULL,
+  `dgender` varchar(45) DEFAULT NULL,
+  `djoin` varchar(45) DEFAULT NULL,
+  `ddegree` varchar(45) DEFAULT NULL,
+  `dgyear` varchar(45) DEFAULT NULL,
+  `dexp` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `petinfo` (
+  `pid` int NOT NULL AUTO_INCREMENT,
+  `pname` varchar(45) DEFAULT NULL,
+  `ptype` varchar(45) DEFAULT NULL,
+  `page` varchar(45) DEFAULT NULL,
+  `apoint_id` int DEFAULT NULL,
+  PRIMARY KEY (`pid`),
+  UNIQUE KEY `pid` (`pid`),
+  KEY `apoint_id` (`apoint_id`),
+  CONSTRAINT `petinfo_ibfk_1` FOREIGN KEY (`apoint_id`) REFERENCES `appointmnt` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
